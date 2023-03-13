@@ -2,4 +2,22 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-return {}
+
+vim.o.relativenumber = true
+vim.o.scrolloff = 5
+vim.keymap.set('i', 'jj', '<Esc>')
+
+return {
+  {
+    'Mofiqul/vscode.nvim',
+    config = function()
+      require('vscode').load('dark')
+    end
+  },
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require("nvim-autopairs").setup()
+    end
+  }
+}
