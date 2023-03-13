@@ -6,6 +6,8 @@
 vim.o.relativenumber = true
 vim.o.scrolloff = 5
 vim.keymap.set('i', 'jj', '<Esc>')
+vim.keymap.set('n', '<leader>op', "<Cmd>NvimTreeToggle<CR>")
+vim.keymap.set('n', '<leader>oP', "<Cmd>NvimTreeFindFile<CR>")
 
 return {
   {
@@ -19,5 +21,14 @@ return {
     config = function()
       require("nvim-autopairs").setup()
     end
-  }
+  },
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    config = function()
+      require("nvim-tree").setup()
+    end
+  },
 }
