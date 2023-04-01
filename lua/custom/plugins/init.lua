@@ -30,11 +30,82 @@ return {
     config = function()
       require("nvim-tree").setup(
         {
-          view = {
-            side = "right"
-          }
+          -- view = {
+          --   side = "right"
+          -- }
         }
       )
     end
   },
+  -- {
+  --   'glepnir/dashboard-nvim',
+  --   config = function()
+  --     local home = os.getenv('UserProfile')
+  --     local db = require('dashboard').setup({
+  --       preview_command = 'cat',
+  --       -- linux
+  --       -- db.preview_command = 'ueberzug'
+  --
+  --
+  --       header = {
+  --         "             ▄▄▀▀▀▀▀▀▀▀▄▄              ",
+  --         "          ▄▀▀            ▀▄▄           ",
+  --         "        ▄▀                  ▀▄         ",
+  --         "       ▌             ▀▄       ▀▀▄      ",
+  --         "      ▌                ▀▌        ▌     ",
+  --         "     ▐                  ▌        ▐     ",
+  --         "     ▌▐    ▐    ▐       ▌         ▌    ",
+  --         "    ▐ ▌    ▌  ▐ ▌      ▐       ▌▐ ▐    ",
+  --         "    ▐ ▌    ▌▄▄▀▀▌▌     ▐▀▌▀▌▄  ▐ ▌ ▌   ",
+  --         "     ▌▌    ▐▀▄▌▌▐▐    ▐▐▐ ▐ ▌▌ ▐ ▌▄▐   ",
+  --         "   ▄▀▄▐    ▌▌▄▀▄▐ ▌▌ ▐ ▌▄▀▄ ▐  ▐ ▌ ▀▄  ",
+  --         "  ▀▄▀  ▌  ▄▀ ▌█▐  ▐▐▀   ▌█▐ ▀▄▐ ▌▌   ▀ ",
+  --         "   ▀▀▄▄▐ ▀▄▀ ▀▄▀        ▀▄▀▄▀ ▌ ▐      ",
+  --         "      ▀▐▀▄ ▀▄        ▐      ▀▌▐        ",
+  --         "        ▌ ▌▐ ▀              ▐ ▐        ",
+  --         "        ▐ ▐ ▌    ▄▄▀▀▀▀▄    ▌ ▐        ",
+  --         "         ▌▐ ▐▄   ▐     ▌  ▄▀  ▐        ",
+  --         "        ▐  ▌▐▐▀▄  ▀▄▄▄▀ ▄▀▐   ▐        ",
+  --         "        ▌▌ ▌▐ ▌ ▀▄▄    ▄▌▐ ▌  ▐        ",
+  --         "       ▐ ▐ ▐▐ ▌    ▀▀▄▀▌▐  ▌  ▌        ",
+  --         "       ▌  ▌▐ ▌        ▐▀▄▌ ▐           ",
+  --       },
+  --       preview_file_path = home .. '\\AppData\\Local\\nvim\\lua\\config\\dashboard.cat',
+  --       preview_file_height = 20,
+  --       preview_file_width = 50,
+  --       custom_center = {
+  --         {
+  --           icon = '  ',
+  --           desc = 'Recently latest session                 ',
+  --           shortcut = '       ',
+  --           action = 'SessionLoad'
+  --         },
+  --         {
+  --           icon = '  ',
+  --           desc = 'Recently opened files                   ',
+  --           action = 'browse oldfiles',
+  --           shortcut = '       '
+  --         },
+  --         {
+  --           icon = '  ',
+  --           desc = 'Find File                               ',
+  --           action = 'Files',
+  --           shortcut = 'SPC p f'
+  --         },
+  --         {
+  --           icon = '  ',
+  --           desc = 'File Browser                            ',
+  --           action = 'NvimTreeToggle',
+  --           shortcut = 'SPC o p'
+  --         },
+  --         {
+  --           icon = '  ',
+  --           desc = 'Find word                                ',
+  --           action = 'Rg',
+  --           shortcut = 'SPC p g'
+  --         },
+  --       }
+  --     })
+  --   end
+  -- }
 }
