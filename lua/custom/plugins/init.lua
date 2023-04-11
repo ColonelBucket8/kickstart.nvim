@@ -12,8 +12,16 @@ vim.keymap.set('n', '<leader>oP', "<Cmd>NvimTreeFindFile<CR>")
 return {
   {
     'Mofiqul/vscode.nvim',
+    -- config = function()
+    --   require('vscode').load('dark')
+    -- end
+  },
+  {
+    'shaunsingh/nord.nvim',
     config = function()
-      require('vscode').load('dark')
+      vim.cmd([[
+        colorscheme nord
+      ]])
     end
   },
   {
