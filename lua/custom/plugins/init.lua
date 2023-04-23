@@ -6,8 +6,8 @@
 vim.o.relativenumber = true
 vim.o.scrolloff = 5
 vim.keymap.set('i', 'jj', '<Esc>')
-vim.keymap.set('n', '<leader>op', "<Cmd>NvimTreeToggle<CR>")
-vim.keymap.set('n', '<leader>oP', "<Cmd>NvimTreeFindFile<CR>")
+vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
 
 return {
   {
@@ -18,17 +18,23 @@ return {
   },
   {
     'shaunsingh/nord.nvim',
+    -- config = function()
+    --   vim.cmd([[
+    --     colorscheme nord
+    --   ]])
+    -- end
+  },
+  {
+    'tanvirtin/monokai.nvim',
     config = function()
-      vim.cmd([[
-        colorscheme nord
-      ]])
-    end
+      require('monokai').setup {}
+    end,
   },
   {
     'windwp/nvim-autopairs',
     config = function()
-      require("nvim-autopairs").setup()
-    end
+      require('nvim-autopairs').setup()
+    end,
   },
   {
     'nvim-tree/nvim-tree.lua',
@@ -36,15 +42,27 @@ return {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
     config = function()
-      require("nvim-tree").setup(
-        {
-          -- view = {
-          --   side = "right"
-          -- }
-        }
-      )
-    end
+      require('nvim-tree').setup {
+        -- view = {
+        --   side = "right"
+        -- }
+      }
+    end,
   },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      local null_ls = require 'null-ls'
+
+      null_ls.setup {
+        sources = {
+          null_ls.builtins.formatting.stylua,
+          null_ls.builtins.formatting.prettier,
+        },
+      }
+    end,
+  },
+
   -- {
   --   'glepnir/dashboard-nvim',
   --   config = function()
