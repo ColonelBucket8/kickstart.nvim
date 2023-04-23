@@ -130,7 +130,7 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'nord',
+        theme = 'monokai',
         component_separators = '|',
         section_separators = '',
       },

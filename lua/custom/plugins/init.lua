@@ -5,7 +5,7 @@
 
 vim.o.relativenumber = true
 vim.o.scrolloff = 5
-vim.keymap.set('i', 'jj', '<Esc>')
+vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
 
