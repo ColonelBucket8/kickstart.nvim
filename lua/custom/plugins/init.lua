@@ -2,12 +2,20 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
-
 vim.o.relativenumber = true
 vim.o.scrolloff = 5
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
+
+-- TODO: Fix code folding only apply after
+-- revisiting the buffer
+-- vim.o.foldlevel = 20
+-- vim.o.foldmethod = 'expr'
+-- vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
+
+vim.o.foldmethod = 'indent'
+vim.o.foldlevel = 99
 
 return {
   {
