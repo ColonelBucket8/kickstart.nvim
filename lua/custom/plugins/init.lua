@@ -9,6 +9,9 @@ vim.o.scrolloff = 5
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+
 -- TODO: Fix code folding only apply after
 -- revisiting the buffer
 -- vim.o.foldlevel = 20
