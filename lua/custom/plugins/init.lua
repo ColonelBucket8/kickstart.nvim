@@ -78,6 +78,9 @@ return {
       }
     end,
   },
+  {
+    'tpope/vim-surround',
+  },
 
   -- {
   --   'glepnir/dashboard-nvim',
