@@ -51,9 +51,9 @@ return {
   },
   {
     'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup()
-    end,
+    -- config = function()
+    --   require('nvim-autopairs').setup()
+    -- end,
   },
   {
     'nvim-tree/nvim-tree.lua',
