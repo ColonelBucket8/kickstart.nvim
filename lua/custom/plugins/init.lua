@@ -44,16 +44,22 @@ return {
   },
   {
     'marko-cerovac/material.nvim',
+    -- config = function()
+    --   vim.cmd 'colorscheme material'
+    --   vim.g.material_style = 'darker'
+    -- end,
+  },
+  {
+    'folke/tokyonight.nvim',
     config = function()
-      vim.cmd 'colorscheme material'
-      vim.g.material_style = 'darker'
+      vim.cmd 'colorscheme tokyonight-night'
     end,
   },
   {
     'windwp/nvim-autopairs',
-    -- config = function()
-    --   require('nvim-autopairs').setup()
-    -- end,
+    config = function()
+      require('nvim-autopairs').setup()
+    end,
   },
   {
     'nvim-tree/nvim-tree.lua',
