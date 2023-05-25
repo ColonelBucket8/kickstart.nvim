@@ -11,6 +11,7 @@ vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('n', '<leader>gg', '<Cmd>LazyGit<CR>')
 
 -- TODO: Fix code folding only apply after
 -- revisiting the buffer
@@ -23,31 +24,12 @@ vim.o.foldlevel = 99
 
 return {
   {
-    'Mofiqul/vscode.nvim',
-    -- config = function()
-    --   require('vscode').load('dark')
-    -- end
-  },
-  {
     'shaunsingh/nord.nvim',
     -- config = function()
     --   vim.cmd([[
     --     colorscheme nord
     --   ]])
     -- end
-  },
-  {
-    'tanvirtin/monokai.nvim',
-    -- config = function()
-    --   require('monokai').setup {}
-    -- end,
-  },
-  {
-    'marko-cerovac/material.nvim',
-    -- config = function()
-    --   vim.cmd 'colorscheme material'
-    --   vim.g.material_style = 'darker'
-    -- end,
   },
   {
     'folke/tokyonight.nvim',
@@ -89,6 +71,13 @@ return {
   },
   {
     'tpope/vim-surround',
+  },
+  {
+    'kdheepak/lazygit.nvim',
+    -- optional for floating window border decoration
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
   },
 
   -- {
