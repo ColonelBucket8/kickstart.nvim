@@ -31,12 +31,6 @@ return {
     -- end
   },
   {
-    'folke/tokyonight.nvim',
-    config = function()
-      vim.cmd 'colorscheme tokyonight-storm'
-    end,
-  },
-  {
     'windwp/nvim-autopairs',
     config = function()
       require('nvim-autopairs').setup()
