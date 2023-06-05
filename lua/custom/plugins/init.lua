@@ -6,11 +6,8 @@
 vim.o.relativenumber = true
 vim.o.scrolloff = 5
 vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>')
-vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
-vim.keymap.set('n', '<leader>gg', '<Cmd>LazyGit<CR>')
 
 -- TODO: Fix code folding only apply after
 -- revisiting the buffer
@@ -53,6 +50,9 @@ return {
         --   side = "right"
         -- }
       }
+
+      vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>', { desc = 'Toggle Nvim Tree' })
+      vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
     end,
   },
   {
@@ -77,9 +77,24 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
+    config = function()
+      vim.keymap.set('n', '<leader>gg', '<Cmd>LazyGit<CR>', { desc = 'Open LazyGit' })
+    end,
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
+  },
+  {
+    'ThePrimeagen/refactoring.nvim',
+    config = function()
+      -- prompt for a refactor to apply when the remap is triggered
+      vim.api.nvim_set_keymap(
+        'v',
+        '<leader>rr',
+        ":lua require('refactoring').select_refactor()<CR>",
+        { noremap = true, silent = true, expr = false, desc = 'Refactor' }
+      )
+    end,
   },
 
   -- {
