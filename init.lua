@@ -550,6 +550,8 @@ local luasnip = require 'luasnip'
 require('luasnip.loaders.from_vscode').lazy_load()
 luasnip.config.setup {}
 
+local os = os.getenv 'OS'
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -561,7 +563,8 @@ cmp.setup {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-_>'] = cmp.mapping.complete {},
+    ['<C-_>'] = os == 'Windows_NT' and cmp.mapping.complete {} or nil,
+    ['<C-Space>'] = os ~= 'Windows_NT' and cmp.mapping.complete {} or nil,
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
