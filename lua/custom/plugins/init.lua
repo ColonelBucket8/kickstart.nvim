@@ -25,10 +25,10 @@ return {
       vim.lsp.handlers['textDocument/publishDiagnostics'] = function(_, result, ctx, ...)
         local client = vim.lsp.get_client_by_id(ctx.client_id)
 
-        if client and client.name == 'tsserver' then
+        if client and client.name == 'eslint' then
           result.diagnostics = vim.tbl_filter(function(diagnostic)
             -- use whatever condition you want to filter diagnostics
-            return not diagnostic.message:find 'is declared but its value is never read'
+            return not diagnostic.message:find 'is assigned a value but never used'
           end, result.diagnostics)
         end
 
