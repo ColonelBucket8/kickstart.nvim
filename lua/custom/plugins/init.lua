@@ -20,6 +20,23 @@ vim.o.foldlevel = 99
 
 return {
   {
+    'neovim/nvim-lspconfig',
+    config = function()
+      vim.lsp.handlers['textDocument/publishDiagnostics'] = function(_, result, ctx, ...)
+        local client = vim.lsp.get_client_by_id(ctx.client_id)
+
+        if client and client.name == 'tsserver' then
+          result.diagnostics = vim.tbl_filter(function(diagnostic)
+            -- use whatever condition you want to filter diagnostics
+            return not diagnostic.message:find 'is declared but its value is never read'
+          end, result.diagnostics)
+        end
+
+        return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
+      end
+    end,
+  },
+  {
     'shaunsingh/nord.nvim',
     -- config = function()
     --   vim.cmd([[
@@ -30,6 +47,10 @@ return {
   {
     'folke/tokyonight.nvim',
     config = function()
+      require('tokyonight').setup {
+        transparent = false,
+      }
+
       vim.cmd 'colorscheme tokyonight-storm'
     end,
   },
@@ -64,6 +85,7 @@ return {
         sources = {
           null_ls.builtins.formatting.stylua,
           null_ls.builtins.formatting.prettierd,
+          null_ls.builtins.formatting.black,
         },
       }
     end,
