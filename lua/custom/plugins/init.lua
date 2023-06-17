@@ -65,15 +65,16 @@ return {
     dependencies = {
       'nvim-tree/nvim-web-devicons', -- optional, for file icons
     },
+    keys = {
+      { '<leader>op', '<Cmd>NvimTreeToggle<CR>',   desc = 'Toggle Nvim Tree' },
+      { '<leader>oP', '<Cmd>NvimTreeFindFile<CR>', desc = 'Reveal file in Nvim Tree' },
+    },
     config = function()
       require('nvim-tree').setup {
         -- view = {
         --   side = "right"
         -- }
       }
-
-      vim.keymap.set('n', '<leader>op', '<Cmd>NvimTreeToggle<CR>', { desc = 'Toggle Nvim Tree' })
-      vim.keymap.set('n', '<leader>oP', '<Cmd>NvimTreeFindFile<CR>')
     end,
   },
   {
@@ -90,6 +91,7 @@ return {
           null_ls.builtins.formatting.gofmt,
           null_ls.builtins.formatting.clang_format,
           null_ls.builtins.formatting.csharpier,
+          null_ls.builtins.formatting.rustfmt,
         },
 
         on_attach = function(client, bufnr)
@@ -118,24 +120,12 @@ return {
     dependencies = {
       'nvim-lua/plenary.nvim',
     },
-    config = function()
-      vim.keymap.set('n', '<leader>gg', '<Cmd>LazyGit<CR>', { desc = 'Open LazyGit' })
-    end,
+    keys = {
+      { '<leader>gg', '<Cmd>LazyGit<CR>', desc = 'Open LazyGit' },
+    },
   },
   {
     'nvim-treesitter/nvim-treesitter-context',
-  },
-  {
-    'ThePrimeagen/refactoring.nvim',
-    config = function()
-      -- prompt for a refactor to apply when the remap is triggered
-      vim.api.nvim_set_keymap(
-        'v',
-        '<leader>rr',
-        ":lua require('refactoring').select_refactor()<CR>",
-        { noremap = true, silent = true, expr = false, desc = 'Refactor' }
-      )
-    end,
   },
 
   -- {
