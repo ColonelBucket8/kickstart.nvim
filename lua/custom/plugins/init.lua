@@ -27,8 +27,17 @@ return {
 
         if client and client.name == 'eslint' then
           result.diagnostics = vim.tbl_filter(function(diagnostic)
-            -- use whatever condition you want to filter diagnostics
-            return not diagnostic.message:find 'is assigned a value but never used'
+            local message_to_filter = {
+              'is assigned a value but never used',
+              'is defined but never used',
+            }
+
+            for _, message in ipairs(message_to_filter) do
+              if diagnostic.message:find(message) then
+                return false
+              end
+            end
+            return true
           end, result.diagnostics)
         end
 
