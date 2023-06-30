@@ -101,6 +101,7 @@ return {
           null_ls.builtins.formatting.clang_format,
           null_ls.builtins.formatting.csharpier,
           null_ls.builtins.formatting.rustfmt,
+          null_ls.builtins.code_actions.gitsigns,
         },
 
         on_attach = function(client, bufnr)
@@ -136,76 +137,40 @@ return {
   {
     'nvim-treesitter/nvim-treesitter-context',
   },
+  {
 
-  -- {
-  --   'glepnir/dashboard-nvim',
-  --   config = function()
-  --     local home = os.getenv('UserProfile')
-  --     local db = require('dashboard').setup({
-  --       preview_command = 'cat',
-  --       -- linux
-  --       -- db.preview_command = 'ueberzug'
-  --
-  --
-  --       header = {
-  --         "             ▄▄▀▀▀▀▀▀▀▀▄▄              ",
-  --         "          ▄▀▀            ▀▄▄           ",
-  --         "        ▄▀                  ▀▄         ",
-  --         "       ▌             ▀▄       ▀▀▄      ",
-  --         "      ▌                ▀▌        ▌     ",
-  --         "     ▐                  ▌        ▐     ",
-  --         "     ▌▐    ▐    ▐       ▌         ▌    ",
-  --         "    ▐ ▌    ▌  ▐ ▌      ▐       ▌▐ ▐    ",
-  --         "    ▐ ▌    ▌▄▄▀▀▌▌     ▐▀▌▀▌▄  ▐ ▌ ▌   ",
-  --         "     ▌▌    ▐▀▄▌▌▐▐    ▐▐▐ ▐ ▌▌ ▐ ▌▄▐   ",
-  --         "   ▄▀▄▐    ▌▌▄▀▄▐ ▌▌ ▐ ▌▄▀▄ ▐  ▐ ▌ ▀▄  ",
-  --         "  ▀▄▀  ▌  ▄▀ ▌█▐  ▐▐▀   ▌█▐ ▀▄▐ ▌▌   ▀ ",
-  --         "   ▀▀▄▄▐ ▀▄▀ ▀▄▀        ▀▄▀▄▀ ▌ ▐      ",
-  --         "      ▀▐▀▄ ▀▄        ▐      ▀▌▐        ",
-  --         "        ▌ ▌▐ ▀              ▐ ▐        ",
-  --         "        ▐ ▐ ▌    ▄▄▀▀▀▀▄    ▌ ▐        ",
-  --         "         ▌▐ ▐▄   ▐     ▌  ▄▀  ▐        ",
-  --         "        ▐  ▌▐▐▀▄  ▀▄▄▄▀ ▄▀▐   ▐        ",
-  --         "        ▌▌ ▌▐ ▌ ▀▄▄    ▄▌▐ ▌  ▐        ",
-  --         "       ▐ ▐ ▐▐ ▌    ▀▀▄▀▌▐  ▌  ▌        ",
-  --         "       ▌  ▌▐ ▌        ▐▀▄▌ ▐           ",
-  --       },
-  --       preview_file_path = home .. '\\AppData\\Local\\nvim\\lua\\config\\dashboard.cat',
-  --       preview_file_height = 20,
-  --       preview_file_width = 50,
-  --       custom_center = {
-  --         {
-  --           icon = '  ',
-  --           desc = 'Recently latest session                 ',
-  --           shortcut = '       ',
-  --           action = 'SessionLoad'
-  --         },
-  --         {
-  --           icon = '  ',
-  --           desc = 'Recently opened files                   ',
-  --           action = 'browse oldfiles',
-  --           shortcut = '       '
-  --         },
-  --         {
-  --           icon = '  ',
-  --           desc = 'Find File                               ',
-  --           action = 'Files',
-  --           shortcut = 'SPC p f'
-  --         },
-  --         {
-  --           icon = '  ',
-  --           desc = 'File Browser                            ',
-  --           action = 'NvimTreeToggle',
-  --           shortcut = 'SPC o p'
-  --         },
-  --         {
-  --           icon = '  ',
-  --           desc = 'Find word                                ',
-  --           action = 'Rg',
-  --           shortcut = 'SPC p g'
-  --         },
-  --       }
-  --     })
-  --   end
-  -- }
+    'glepnir/dashboard-nvim',
+    event = 'VimEnter',
+    config = function()
+      require('dashboard').setup {
+        config = {
+          header = {
+            '             ▄▄▀▀▀▀▀▀▀▀▄▄              ',
+            '          ▄▀▀            ▀▄▄           ',
+            '        ▄▀                  ▀▄         ',
+            '       ▌             ▀▄       ▀▀▄      ',
+            '      ▌                ▀▌        ▌     ',
+            '     ▐                  ▌        ▐     ',
+            '     ▌▐    ▐    ▐       ▌         ▌    ',
+            '    ▐ ▌    ▌  ▐ ▌      ▐       ▌▐ ▐    ',
+            '    ▐ ▌    ▌▄▄▀▀▌▌     ▐▀▌▀▌▄  ▐ ▌ ▌   ',
+            '     ▌▌    ▐▀▄▌▌▐▐    ▐▐▐ ▐ ▌▌ ▐ ▌▄▐   ',
+            '   ▄▀▄▐    ▌▌▄▀▄▐ ▌▌ ▐ ▌▄▀▄ ▐  ▐ ▌ ▀▄  ',
+            '  ▀▄▀  ▌  ▄▀ ▌█▐  ▐▐▀   ▌█▐ ▀▄▐ ▌▌   ▀ ',
+            '   ▀▀▄▄▐ ▀▄▀ ▀▄▀        ▀▄▀▄▀ ▌ ▐      ',
+            '      ▀▐▀▄ ▀▄        ▐      ▀▌▐        ',
+            '        ▌ ▌▐ ▀              ▐ ▐        ',
+            '        ▐ ▐ ▌    ▄▄▀▀▀▀▄    ▌ ▐        ',
+            '         ▌▐ ▐▄   ▐     ▌  ▄▀  ▐        ',
+            '        ▐  ▌▐▐▀▄  ▀▄▄▄▀ ▄▀▐   ▐        ',
+            '        ▌▌ ▌▐ ▌ ▀▄▄    ▄▌▐ ▌  ▐        ',
+            '       ▐ ▐ ▐▐ ▌    ▀▀▄▀▌▐  ▌  ▌        ',
+            '       ▌  ▌▐ ▌        ▐▀▄▌ ▐           ',
+            '',
+          },
+        },
+      }
+    end,
+    requires = { 'nvim-tree/nvim-web-devicons' },
+  },
 }
