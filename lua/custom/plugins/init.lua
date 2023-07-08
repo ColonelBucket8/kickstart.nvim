@@ -69,9 +69,8 @@ return {
   },
   {
     'windwp/nvim-autopairs',
-    config = function()
-      require('nvim-autopairs').setup()
-    end,
+    event = 'InsertEnter',
+    opts = {}, -- this is equalent to setup({}) function
   },
   {
     'nvim-tree/nvim-tree.lua',
@@ -82,13 +81,7 @@ return {
       { '<leader>op', '<Cmd>NvimTreeToggle<CR>',   desc = 'Toggle Nvim Tree' },
       { '<leader>oP', '<Cmd>NvimTreeFindFile<CR>', desc = 'Reveal file in Nvim Tree' },
     },
-    config = function()
-      require('nvim-tree').setup {
-        -- view = {
-        --   side = "right"
-        -- }
-      }
-    end,
+    opts = {},
   },
   {
     'jose-elias-alvarez/null-ls.nvim',
