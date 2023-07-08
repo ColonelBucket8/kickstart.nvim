@@ -137,6 +137,7 @@ require('lazy').setup({
     config = function()
       vim.cmd.colorscheme 'onedark'
     end,
+    enabled = false
   },
 
   {

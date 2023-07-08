@@ -46,12 +46,15 @@ return {
     end,
   },
   {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'catppuccin'
+    end,
+  },
+  {
     'shaunsingh/nord.nvim',
-    -- config = function()
-    --   vim.cmd([[
-    --     colorscheme nord
-    --   ]])
-    -- end
   },
   {
     'folke/tokyonight.nvim',
@@ -60,8 +63,9 @@ return {
         transparent = false,
       }
 
-      vim.cmd 'colorscheme tokyonight-storm'
+      vim.cmd.colorscheme 'tokyonight-storm'
     end,
+    enabled = false,
   },
   {
     'windwp/nvim-autopairs',
@@ -101,7 +105,7 @@ return {
           null_ls.builtins.formatting.clang_format,
           null_ls.builtins.formatting.csharpier,
           null_ls.builtins.formatting.rustfmt,
-          null_ls.builtins.code_actions.gitsigns,
+          -- null_ls.builtins.code_actions.gitsigns,
         },
 
         on_attach = function(client, bufnr)
