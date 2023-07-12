@@ -195,4 +195,10 @@ return {
       'nvim-lua/plenary.nvim',
     },
   },
+  {
+    'mbbill/undotree',
+    keys = {
+      { '<leader>u', vim.cmd.UndotreeToggle, desc = 'Undo tree' },
+    },
+  },
 }
