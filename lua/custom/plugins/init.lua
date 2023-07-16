@@ -71,6 +71,7 @@ return {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
     opts = {}, -- this is equalent to setup({}) function
+    enabled = false,
   },
   {
     'nvim-tree/nvim-tree.lua',
@@ -200,5 +201,9 @@ return {
     keys = {
       { '<leader>u', vim.cmd.UndotreeToggle, desc = 'Undo tree' },
     },
+  },
+  {
+    'brenoprata10/nvim-highlight-colors',
+    opts = {},
   },
 }
