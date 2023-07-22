@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.g.markdown_folding = 1
 vim.o.relativenumber = true
 vim.o.scrolloff = 5
 vim.keymap.set('i', 'jk', '<Esc>')
