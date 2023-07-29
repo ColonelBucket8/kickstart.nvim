@@ -137,7 +137,7 @@ require('lazy').setup({
     config = function()
       vim.cmd.colorscheme 'onedark'
     end,
-    enabled = false
+    enabled = false,
   },
 
   {
@@ -216,7 +216,7 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.number = false
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -547,7 +547,7 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
 }
 
 -- [[ Configure nvim-cmp ]]
