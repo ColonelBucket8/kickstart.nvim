@@ -315,7 +315,7 @@ require('nvim-treesitter.configs').setup {
   auto_install = false,
 
   highlight = { enable = true },
-  indent = { enable = true },
+  indent = { enable = true, additional_vim_regex_highlighting = { 'org' } },
   incremental_selection = {
     enable = true,
     keymaps = {
@@ -601,5 +601,9 @@ cmp.setup {
   },
 }
 
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
+-- The line beneath this is called `modeline`. See `:help modeline`
+-- vim: ts=2 sts=2 sw=2 et
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

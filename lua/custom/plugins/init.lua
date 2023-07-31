@@ -8,6 +8,7 @@ vim.o.scrolloff = 5
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('n', '<leader>.', '<Cmd>Ex<CR>')
 
 -- TODO: Fix code folding only apply after
 -- revisiting the buffer
@@ -271,5 +272,30 @@ return {
     keys = {
       { '<leader>st', '<Cmd>TodoTelescope<CR>', desc = 'Search Todo List' },
     },
+  },
+  {
+    'nvim-orgmode/orgmode',
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+    config = function()
+      require('orgmode').setup_ts_grammar()
+      require('orgmode').setup {
+        org_agenda_files = { '~/org/**/*' },
+        org_default_notes_file = '~/org/notes.org',
+        org_capture_templates = {
+          j = {
+            description = 'Journal',
+            template = '\n*** %<%Y-%m-%d> %<%A>\n**** %U\n\n%?',
+            target = '~/org/journal.org',
+          },
+          T = {
+            description = 'Todo',
+            template = '** TODO %?\n',
+            target = '~/org/todo.org',
+          },
+        },
+      }
+    end,
   },
 }
