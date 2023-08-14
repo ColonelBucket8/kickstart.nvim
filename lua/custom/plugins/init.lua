@@ -5,7 +5,7 @@
 
 vim.g.markdown_folding = 1
 vim.o.scrolloff = 5
-vim.keymap.set('i', 'jk', '<Esc>')
+-- vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('n', '<leader>.', '<Cmd>Ex<CR>')
@@ -18,6 +18,8 @@ vim.keymap.set('n', '<leader>.', '<Cmd>Ex<CR>')
 
 vim.o.foldmethod = 'indent'
 vim.o.foldlevel = 99
+
+vim.cmd 'let g:netrw_banner = 0'
 
 vim.api.nvim_create_user_command('ToggleTransparent', function()
   local catppuccin = require 'catppuccin'
@@ -184,7 +186,7 @@ return {
       'nvim-lua/plenary.nvim',
     },
     keys = {
-      { '<leader>gg', '<Cmd>LazyGit<CR>', desc = 'Open LazyGit' },
+      -- { '<leader>gg', '<Cmd>LazyGit<CR>', desc = 'Open LazyGit' },
     },
   },
   {
@@ -320,5 +322,17 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope.nvim',
     },
+  },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',         -- required
+      'nvim-telescope/telescope.nvim', -- optional
+      'sindrets/diffview.nvim',        -- optional
+    },
+    keys = {
+      { '<leader>gg', '<Cmd>Neogit<CR>', desc = 'Open LazyGit' },
+    },
+    config = true,
   },
 }
