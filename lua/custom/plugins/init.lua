@@ -187,7 +187,7 @@ return {
       'nvim-lua/plenary.nvim',
     },
     keys = {
-      -- { '<leader>gg', '<Cmd>LazyGit<CR>', desc = 'Open LazyGit' },
+      { '<leader>gg', '<Cmd>LazyGit<CR>', desc = 'Open LazyGit' },
     },
   },
   {
@@ -335,6 +335,7 @@ return {
       { '<leader>gg', '<Cmd>Neogit<CR>', desc = 'Open LazyGit' },
     },
     config = true,
+    enabled = false,
   },
   {
     'Tsuzat/NeoSolarized.nvim',
@@ -346,6 +347,13 @@ return {
         transparent = false,
       }
       vim.cmd [[ colorscheme NeoSolarized ]]
+    end,
+    enabled = false,
+  },
+  {
+    'Mofiqul/dracula.nvim',
+    config = function()
+      vim.cmd [[ colorscheme dracula ]]
     end,
   },
 }
